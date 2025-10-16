@@ -19,12 +19,12 @@ public class buttonScript : MonoBehaviour
     public Text amount2Text;
     public int amount2;
     public float amount2Profit;
-    
+
     [Header("upgrades")]
     public int upgradePrize;
     public Text upgradeText;
-    
-  
+
+
 
     void Update()
     {
@@ -36,18 +36,18 @@ public class buttonScript : MonoBehaviour
         shop2text.text = "Tier 2: " + shop1prize + " $: ";
 
         //amounts
-        amount1Text = "Tier 1: "+ amount1+ " arts $: "+amount1Profit+"/s";
+        amount1Text.text = "Tier 1: " + amount1 + " arts $: " + amount1Profit + "/s";
 
     }
 
     public void Upgrade()
     {
-        if (currentScore >= upgradePrize)
-        {
-            currentScore -= upgradePrize;
-            hitPower *= 2;
-            upgradePrize *= 3;
-        }
+        //if (currentScore >= upgradePrize)
+        //{
+        //    currentScore -= upgradePrize;
+        //    hitPower *= 2;
+        //    upgradePrize *= 3;
+        //}
     }
 
 
