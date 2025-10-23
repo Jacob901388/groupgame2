@@ -10,6 +10,12 @@ public class buttonScript : MonoBehaviour
     public int shop2prize;
     public Text shop2text;
 
+    [Header("Click")]
+    public Text scoreText;
+    public float currentScore;
+    public float hitPower;
+    public float scoreIncreasedPerSecond;
+    public float x;
 
     [Header("Amount")]
     public Text amount1Text;
@@ -24,10 +30,28 @@ public class buttonScript : MonoBehaviour
     public int upgradePrize;
     public Text upgradeText;
 
+    void Start ()
+    {
+        //Clicker
+        currentScore = 0;
+        hitPower--;
+        scoreIncreasedPerSecond++;
+        x = 0f;
+
+    }
 
 
     void Update()
+
     {
+        //Clicker
+        currentScore = 0;
+        hitPower--;
+        scoreIncreasedPerSecond = 1;
+        x = 0f;
+
+
+
         //Upgrade
         upgradeText.text = "cost" + upgradePrize + " $";
 
@@ -37,18 +61,43 @@ public class buttonScript : MonoBehaviour
 
         //amounts
         amount1Text.text = "Tier 1: " + amount1 + " arts $: " + amount1Profit + "/s";
-
+        amount2Text.text = "Tier 2: " + amount1 + " arts $: " + amount2Profit + "/s";
     }
 
     public void Upgrade()
     {
-        //if (currentScore >= upgradePrize)
-        //{
-        //    currentScore -= upgradePrize;
-        //    hitPower *= 2;
-        //    upgradePrize *= 3;
-        //}
+        if (currentScore >= upgradePrize)
+        {
+            currentScore -= upgradePrize;
+           hitPower *= 2;
+            upgradePrize *= 3;
+        }
     }
 
+
+
+    public void Shop1()
+    {
+        if (currentScore >= shop1prize)
+        {
+            currentScore = currentScore - shop1prize;
+            amount1++;
+            amount1Profit++;
+            x++;
+            shop1prize += 25;
+        }
+    }
+
+    public void Shop2()
+    {
+        if (currentScore >= shop2prize)
+        {
+            currentScore = currentScore - shop2prize;
+            amount2++;
+            amount2Profit += 5;
+            x += 5;
+            shop2prize += 125;
+        }
+    }
 
 }
