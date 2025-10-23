@@ -333,4 +333,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc8effb25bc48f54bae3e12d56b4aca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fish
-  fishData: {fileID: 0}
+  fishData: {fileID: 11400000, guid: 18269e80bd770b8488543ee429f9aed6, type: 2}

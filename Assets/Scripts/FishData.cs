@@ -6,7 +6,7 @@ public class FishData : ScriptableObject
     [Header("Fish Stats")]
     [SerializeField] public Sprite fishIcon;
     [SerializeField] public string fishName;
-    [SerializeField] public int fishSpeed;
+    [SerializeField] public float fishSpeed;
     [SerializeField] public float fishSize;
 
 
