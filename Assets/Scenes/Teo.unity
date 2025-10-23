@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e56936daa4a214cad8cf26053cac81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishManeger
+  ParentToFish: {fileID: 1826775887}
   fishTypes:
   - {fileID: 8007066503086079451, guid: efa866626c0a2154892f1613d72d839b, type: 3}
   - {fileID: 8007066503086079451, guid: 9b595868714679f4186ec5ee4c629523, type: 3}
@@ -2023,6 +2024,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 485676057}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1826775887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1826775888}
+  m_Layer: 0
+  m_Name: FishCurrentlyOnScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1826775888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826775887}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.03372, y: -0.40099, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1879612070
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,5 +2178,6 @@ SceneRoots:
   - {fileID: 1879612072}
   - {fileID: 460348404}
   - {fileID: 275220988}
+  - {fileID: 1826775888}
   - {fileID: 485676057}
   - {fileID: 918616143}
