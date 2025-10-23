@@ -3,11 +3,19 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "FishType/Fish")]
 public class FishData : ScriptableObject
 {
-    [SerializeField] string fishName;
+    [Header("Fish Stats")]
+    [SerializeField] public Sprite fishIcon;
+    [SerializeField] public string fishName;
+    [SerializeField] public int fishSpeed;
+    [SerializeField] public float fishSize;
 
-    [SerializeField] int fishValue;
 
-    [SerializeField] int fishSpeed;
+    [Header("Fish Value Data")]
+    [SerializeField] public int maxFishValue;
+    [SerializeField] public int minFishValue;
+    
+
+    
 
 
 
