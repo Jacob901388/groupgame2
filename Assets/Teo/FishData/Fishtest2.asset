@@ -15,6 +15,6 @@ MonoBehaviour:
   fishIcon: {fileID: 0}
   fishName: Ffish2
   fishSpeed: 0.55
-  fishSize: 1.2
+  fishSize: 2
   maxFishValue: 10
   minFishValue: 12
