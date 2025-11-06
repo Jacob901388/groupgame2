@@ -38,6 +38,24 @@ public class buttonScript : MonoBehaviour
         scoreIncreasedPerSecond++;
         x = 0f;
 
+        //Imports values from MoneyScript
+        
+
+        //Set all varibals to default before loading
+        shop1prize = 25;
+        shop2prize = 125;
+        amount1 = 0;
+        amount1Profit = 1;
+        amount2 = 0;
+        amount2Profit = 5;
+
+
+        //Reset line
+        //PlayerPrefs.DeleteALL();
+
+        //Load
+        currentScore = PlayerPrefs.GetInt("currentScore", (int)currentScore);
+
     }
 
 
@@ -62,6 +80,9 @@ public class buttonScript : MonoBehaviour
         //amounts
         amount1Text.text = "Tier 1: " + amount1 + " arts $: " + amount1Profit + "/s";
         amount2Text.text = "Tier 2: " + amount1 + " arts $: " + amount2Profit + "/s";
+
+        //Reload
+        PlayerPrefs.SetInt("currentScore", 0);
     }
 
     public void Upgrade()
@@ -99,5 +120,7 @@ public class buttonScript : MonoBehaviour
             shop2prize += 125;
         }
     }
+
+    
 
 }
