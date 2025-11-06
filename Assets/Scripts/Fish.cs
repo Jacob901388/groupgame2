@@ -5,10 +5,14 @@ using System.Collections.Generic;
 
 public class Fish : MonoBehaviour
 {
+    [Header("fishData")]
     [SerializeField] FishData fishData;
 
+    [Header("fish values")]
     [SerializeField] float fishLifeDuration;
+    public int fishValue;
 
+    [Header("Other Info")]
     FishManeger fishManger;
     Rigidbody2D rb;
 
@@ -17,7 +21,11 @@ public class Fish : MonoBehaviour
         fishManger = FindAnyObjectByType<FishManeger>();
         rb = GetComponent<Rigidbody2D>();
 
-        StartCoroutine(FishLifeDuration());
+        fishLifeDuration = 3 * (fishData.fishSpeed + 2);
+
+
+        fishValue = Random.Range(fishData.minFishValue, fishData.maxFishValue);
+        gameObject.transform.localScale = new Vector3(fishData.fishSize, fishData.fishSize, fishData.fishSize);
     }
 
     
@@ -26,14 +34,11 @@ public class Fish : MonoBehaviour
         rb.AddForce(transform.right * fishData.fishSpeed);
     }
 
-    IEnumerator FishLifeDuration()
+    private void OnBecameInvisible()
     {
-
-        yield return new WaitForSeconds(fishLifeDuration);
-        
-        Destroy(gameObject);
+        Debug.Log(fishManger.FishToSpawn);
         GameObject currentFish = fishManger.fishOnScene[fishManger.FishToSpawn];
         fishManger.fishOnScene.Remove(currentFish);
-
+        Destroy(gameObject);
     }
 }

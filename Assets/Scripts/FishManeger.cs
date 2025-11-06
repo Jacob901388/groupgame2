@@ -1,20 +1,51 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FishManeger : MonoBehaviour
 {
-    
 
+    [Header("Fish Info")]
     public GameObject[] fishTypes;
     
     public List<GameObject> fishOnScene;
 
+    [Header("FishSpawn Info")]
     public GameObject fishSpawn;
     public GameObject leftFishSpawn;
     public GameObject rightFishSpawn;
-
     public GameObject ParentToFish;
     public int FishToSpawn;
+
+    [Header("Automatik Fish Spanwer Info")]
+    public int fishMaxAmount;
+
+
+    private void Start()
+    {
+        fishMaxAmount = 4; 
+    }
+
+    public void Update()
+    {
+        StartCoroutine(SpawnDelay());
+    }
+
+    IEnumerator SpawnDelay()
+    {
+        float randomTimeValue = Random.Range(1, 3.5f);
+        yield return new WaitForSeconds(randomTimeValue);
+
+        FishSpawner();
+    }
+
+    public void FishSpawner()
+    {
+        if(fishOnScene.Count != fishMaxAmount)
+        {
+            spawnFish();
+        }
+    }
 
     public void spawnFish()
     {
@@ -35,11 +66,9 @@ public class FishManeger : MonoBehaviour
             fishToSpawn.transform.SetParent(ParentToFish.transform);
         }
 
-        
-
-
-
         fishOnScene.Add(fishTypes[FishToSpawn]);
     }
+
+
 
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   fishIcon: {fileID: 0}
   fishName: Fish1
-  fishSpeed: 0.8
-  fishSize: 0
-  maxFishValue: 0
-  minFishValue: 0
+  fishSpeed: 0.3
+  fishSize: 1
+  maxFishValue: 2
+  minFishValue: 6
