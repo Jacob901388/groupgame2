@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +15,7 @@ public class FishingRodManager : MonoBehaviour
     
     Button rodUpgradeButton;
 
+
     private void Start()
     {   
         rodUpgradeButton = GetComponent<Button>();
@@ -20,14 +23,22 @@ public class FishingRodManager : MonoBehaviour
     }
     void OnClickButton()
     {
-        //int CaughtFish = Random.Range(0, FindFirstObjectByType<FishManeger>().fishOnScene.Count);
+        int CaughtFish = Random.Range(0, FindFirstObjectByType<FishManeger>().fishOnScene.Count);
 
-        
-        
-        //Doesn't work right now
-        //GameObject CaughtFishData = FindFirstObjectByType<FishManeger>().fishOnScene[CaughtFish];
-        //CaughtFishData.GetComponent<FishData>();
 
-        Debug.Log("Pluh");
+        GameObject CaughtFishData = FindFirstObjectByType<FishManeger>().fishOnScene[CaughtFish];
+
+        Debug.Log(CaughtFishData);
+        string fishName = CaughtFishData.GetComponent<Fish>().fishData.fishName;
+        int fishValue = CaughtFishData.GetComponent<Fish>().fishData.value;
+
+        FindAnyObjectByType<MoneyCounter>().AddScore(fishValue);
+
+
+        Destroy(FindAnyObjectByType<FishManeger>().fishOnScene[CaughtFish]);
+        
+        //NOW WE NEED TO REMOVE THE FISH FROM THE LIST
     }
+
+    
 }
