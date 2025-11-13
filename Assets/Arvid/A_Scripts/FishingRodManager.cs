@@ -34,11 +34,10 @@ public class FishingRodManager : MonoBehaviour
 
         FindAnyObjectByType<MoneyCounter>().AddScore(fishValue);
 
-        //Debug.Log(fishValue);
-        //Destroy(CaughtFishData);
 
         Destroy(FindAnyObjectByType<FishManeger>().fishOnScene[CaughtFish]);
         
+        //NOW WE NEED TO REMOVE THE FISH FROM THE LIST
     }
 
     
