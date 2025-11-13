@@ -25,8 +25,11 @@ public class FishingRodManager : MonoBehaviour
 
         GameObject CaughtFishData = FindFirstObjectByType<FishManeger>().fishOnScene[CaughtFish];
         string fishName = CaughtFishData.GetComponent<Fish>().fishData.fishName;
+        //int fishValue = CaughtFishData.GetComponent<Fish>().fishData.value;
 
-        
+        FindAnyObjectByType<MoneyCounter>().AddScore(fishValue);
+
+        Debug.Log(fishValue);
     }
 
     
