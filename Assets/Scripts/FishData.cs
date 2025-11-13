@@ -11,8 +11,8 @@ public class FishData : ScriptableObject
 
 
     [Header("Fish Value Data")]
-    [SerializeField] public int maxFishValue;
-    [SerializeField] public int minFishValue;
+    [SerializeField] public int value;
+
     
 
     
