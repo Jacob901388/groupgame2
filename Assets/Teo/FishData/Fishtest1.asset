@@ -16,4 +16,5 @@ MonoBehaviour:
   fishName: Fish1
   fishSpeed: 0.3
   fishSize: 1
-  value: 2
+  maxFishValue: 2
+  minFishValue: 6
