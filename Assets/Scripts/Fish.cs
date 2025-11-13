@@ -10,7 +10,6 @@ public class Fish : MonoBehaviour
 
     [Header("fish values")]
     [SerializeField] float fishLifeDuration;
-    public int fishValue;
 
     [Header("Other Info")]
     FishManeger fishManger;
@@ -24,7 +23,6 @@ public class Fish : MonoBehaviour
         fishLifeDuration = 3 * (fishData.fishSpeed + 2);
 
 
-        fishValue = Random.Range(fishData.minFishValue, fishData.maxFishValue);
         gameObject.transform.localScale = new Vector3(fishData.fishSize, fishData.fishSize, fishData.fishSize);
     }
 
