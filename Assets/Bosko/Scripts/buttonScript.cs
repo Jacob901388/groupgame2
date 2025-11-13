@@ -41,14 +41,6 @@ public class buttonScript : MonoBehaviour
         //Imports values from MoneyScript
         //FindObjectOfType<Money>
 
-        //Set all varibals to default before loading
-        shop1prize = 25;
-        shop2prize = 125;
-        amount1 = 0;
-        amount1Profit = 1;
-        amount2 = 0;
-        amount2Profit = 5;
-
 
         //Reset line
         //PlayerPrefs.DeleteALL();
@@ -56,12 +48,7 @@ public class buttonScript : MonoBehaviour
         //Load
         currentScore = PlayerPrefs.GetInt("currentScore", (int)currentScore);
 
-    }
 
-
-    void Update()
-
-    {
         //Clicker
         currentScore = 0;
         hitPower--;
@@ -126,4 +113,4 @@ public class buttonScript : MonoBehaviour
 
     }
 
-}
+} 
