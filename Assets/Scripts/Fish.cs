@@ -1,16 +1,44 @@
 using UnityEngine;
+using System.Collections;
+using NUnit.Framework;
+using System.Collections.Generic;
 
 public class Fish : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("fishData")]
+    [SerializeField] FishData fishData;
+
+    [Header("fish values")]
+    [SerializeField] float fishLifeDuration;
+    public int fishValue;
+
+    [Header("Other Info")]
+    FishManeger fishManger;
+    Rigidbody2D rb;
+
     void Start()
     {
-        
+        fishManger = FindAnyObjectByType<FishManeger>();
+        rb = GetComponent<Rigidbody2D>();
+
+        fishLifeDuration = 3 * (fishData.fishSpeed + 2);
+
+
+        fishValue = Random.Range(fishData.minFishValue, fishData.maxFishValue);
+        gameObject.transform.localScale = new Vector3(fishData.fishSize, fishData.fishSize, fishData.fishSize);
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        rb.AddForce(transform.right * fishData.fishSpeed);
+    }
+
+    private void OnBecameInvisible()
+    {
+        Debug.Log(fishManger.FishToSpawn);
+        GameObject currentFish = fishManger.fishOnScene[fishManger.FishToSpawn];
+        fishManger.fishOnScene.Remove(currentFish);
+        Destroy(gameObject);
     }
 }

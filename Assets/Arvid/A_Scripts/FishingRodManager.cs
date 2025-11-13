@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,9 +6,8 @@ public class FishingRodManager : MonoBehaviour
 {
     [Header("Button Art")]
 
-    [SerializeField]
-    private Image buttonImage;
-    private TextMeshProUGUI buttonText;
+    [SerializeField] Image buttonImage;
+    [SerializeField] TextMeshProUGUI buttonText;
 
 
     
@@ -22,14 +20,14 @@ public class FishingRodManager : MonoBehaviour
     }
     void OnClickButton()
     {
-        int CaughtFish = Random.Range(0, FindFirstObjectByType<FishManeger>().fishOnScene.Count);
+        //int CaughtFish = Random.Range(0, FindFirstObjectByType<FishManeger>().fishOnScene.Count);
 
         
         
         //Doesn't work right now
-        GameObject CaughtFishData = FindFirstObjectByType<FishManeger>().fishOnScene[CaughtFish];
-        CaughtFishData.GetComponent<FishData>();
+        //GameObject CaughtFishData = FindFirstObjectByType<FishManeger>().fishOnScene[CaughtFish];
+        //CaughtFishData.GetComponent<FishData>();
 
-        //Debug.Log(FishData)
+        Debug.Log("Pluh");
     }
 }
