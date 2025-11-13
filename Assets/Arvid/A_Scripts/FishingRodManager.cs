@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +15,7 @@ public class FishingRodManager : MonoBehaviour
     
     Button rodUpgradeButton;
 
+
     private void Start()
     {   
         rodUpgradeButton = GetComponent<Button>();
@@ -24,12 +27,17 @@ public class FishingRodManager : MonoBehaviour
 
 
         GameObject CaughtFishData = FindFirstObjectByType<FishManeger>().fishOnScene[CaughtFish];
+
+        Debug.Log(CaughtFishData);
         string fishName = CaughtFishData.GetComponent<Fish>().fishData.fishName;
         int fishValue = CaughtFishData.GetComponent<Fish>().fishData.value;
 
         FindAnyObjectByType<MoneyCounter>().AddScore(fishValue);
 
-        Debug.Log(fishValue);
+
+        Destroy(FindAnyObjectByType<FishManeger>().fishOnScene[CaughtFish]);
+        
+        //NOW WE NEED TO REMOVE THE FISH FROM THE LIST
     }
 
     
