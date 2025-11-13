@@ -12,17 +12,19 @@ public class MoneyCounter : MonoBehaviour
     private void Start()
     {
         buttonScript = FindAnyObjectByType<buttonScript>();
+
+        moneyCounter.text = ("$ " + currentMoney.ToString());
     }
     public void AddScore(int ScoreToAdd)
     {
         currentMoney += ScoreToAdd;
+
+        moneyCounter.text = ("$ " + currentMoney.ToString());
     }
     public void DeductScore(int ScoreToDeduct)
     {
         currentMoney -= ScoreToDeduct;
-    }
-    void Update()
-    {
+
         moneyCounter.text = ("$ " + currentMoney.ToString());
     }
 }

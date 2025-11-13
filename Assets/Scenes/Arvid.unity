@@ -1073,6 +1073,7 @@ GameObject:
   m_Component:
   - component: {fileID: 904187667}
   - component: {fileID: 904187666}
+  - component: {fileID: 904187668}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1087,7 +1088,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904187665}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32f81a7aeb7314547b17d7f809debb5b, type: 3}
   m_Name: 
@@ -1124,6 +1125,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &904187668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904187665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce753f5a4f6b3d34f8816da1d450505c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoneyCounter
+  currentMoney: 0
+  moneyCounter: {fileID: 1693696147}
 --- !u!1 &918616139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1603,6 +1618,7 @@ GameObject:
   - component: {fileID: 1151028384}
   - component: {fileID: 1151028383}
   - component: {fileID: 1151028382}
+  - component: {fileID: 1151028385}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1712,6 +1728,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151028380}
   m_CullTransparentMesh: 1
+--- !u!114 &1151028385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151028380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bd46129ffa77ce4b9494052e5e29bd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FishingRodManager
+  buttonImage: {fileID: 0}
+  buttonText: {fileID: 0}
 --- !u!1 &1498987547
 GameObject:
   m_ObjectHideFlags: 0
