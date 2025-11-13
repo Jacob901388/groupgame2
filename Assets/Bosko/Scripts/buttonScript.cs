@@ -39,7 +39,7 @@ public class buttonScript : MonoBehaviour
         x = 0f;
 
         //Imports values from MoneyScript
-        
+        //9FindObjectOfType<Money>
 
         //Set all varibals to default before loading
         shop1prize = 25;
