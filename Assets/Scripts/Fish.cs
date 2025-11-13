@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Fish : MonoBehaviour
 {
     [Header("fishData")]
-    [SerializeField] FishData fishData;
+    [SerializeField] public FishData fishData;
 
     [Header("fish values")]
     [SerializeField] float fishLifeDuration;
@@ -36,7 +36,6 @@ public class Fish : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        Debug.Log(fishManger.FishToSpawn);
         GameObject currentFish = fishManger.fishOnScene[fishManger.FishToSpawn];
         fishManger.fishOnScene.Remove(currentFish);
         Destroy(gameObject);

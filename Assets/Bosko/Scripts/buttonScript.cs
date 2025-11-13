@@ -12,7 +12,7 @@ public class buttonScript : MonoBehaviour
 
     [Header("Click")]
     public Text scoreText;
-    public float currentScore;
+    public int currentScore;
     public float hitPower;
     public float scoreIncreasedPerSecond;
     public float x;
@@ -39,7 +39,7 @@ public class buttonScript : MonoBehaviour
         x = 0f;
 
         //Imports values from MoneyScript
-        //9FindObjectOfType<Money>
+        //FindObjectOfType<Money>
 
         //Set all varibals to default before loading
         shop1prize = 25;
@@ -121,6 +121,9 @@ public class buttonScript : MonoBehaviour
         }
     }
 
-    
+    public void addScore(int scoreToAdd)
+    {
+
+    }
 
 }
