@@ -22,12 +22,12 @@ public class FishingRodManager : MonoBehaviour
     {
         int CaughtFish = Random.Range(0, FindFirstObjectByType<FishManeger>().fishOnScene.Count);
 
-        
-        
-        //Doesn't work right now
-        GameObject CaughtFishData = FindFirstObjectByType<FishManeger>().fishOnScene[CaughtFish];
-        CaughtFishData.GetComponent<FishData>();
 
-        Debug.Log(CaughtFishData);
+        GameObject CaughtFishData = FindFirstObjectByType<FishManeger>().fishOnScene[CaughtFish];
+        string fishName = CaughtFishData.GetComponent<Fish>().fishData.fishName;
+
+        
     }
+
+    
 }
