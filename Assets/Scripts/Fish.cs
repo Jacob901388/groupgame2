@@ -26,10 +26,9 @@ public class Fish : MonoBehaviour
         gameObject.transform.localScale = new Vector3(fishData.fishSize, fishData.fishSize, fishData.fishSize);
     }
 
-    
-    void Update()
+    private void FixedUpdate()
     {
-        rb.AddForce(transform.right * fishData.fishSpeed);
+        rb.AddForce(transform.right * fishData.fishSpeed * Time.deltaTime);
     }
 
     private void OnBecameInvisible()
