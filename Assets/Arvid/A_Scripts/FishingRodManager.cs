@@ -20,14 +20,17 @@ public class FishingRodManager : MonoBehaviour
     }
     void OnClickButton()
     {
-        //int CaughtFish = Random.Range(0, FindFirstObjectByType<FishManeger>().fishOnScene.Count);
+        int CaughtFish = Random.Range(0, FindFirstObjectByType<FishManeger>().fishOnScene.Count);
 
-        
-        
-        //Doesn't work right now
-        //GameObject CaughtFishData = FindFirstObjectByType<FishManeger>().fishOnScene[CaughtFish];
-        //CaughtFishData.GetComponent<FishData>();
 
-        Debug.Log("Pluh");
+        GameObject CaughtFishData = FindFirstObjectByType<FishManeger>().fishOnScene[CaughtFish];
+        string fishName = CaughtFishData.GetComponent<Fish>().fishData.fishName;
+        int fishValue = CaughtFishData.GetComponent<Fish>().fishData.value;
+
+        FindAnyObjectByType<MoneyCounter>().AddScore(fishValue);
+
+        Debug.Log(fishValue);
     }
+
+    
 }
