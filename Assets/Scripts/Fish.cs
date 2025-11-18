@@ -34,6 +34,11 @@ public class Fish : MonoBehaviour
 
     private void OnBecameInvisible()
     {
+        FishDie();
+    }
+
+    void FishDie()
+    {
         GameObject currentFish = fishManger.fishOnScene[fishManger.FishToSpawn];
         fishManger.fishOnScene.Remove(currentFish);
         Destroy(gameObject);

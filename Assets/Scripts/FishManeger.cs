@@ -59,8 +59,6 @@ public class FishManeger : MonoBehaviour
             fishOnScene.Add(fishToSpawn);
             fishToSpawn.transform.SetParent(ParentToFish.transform);
         }
-
-        //fishOnScene.Add(fishTypes[FishToSpawn]);
     }
 
 
