@@ -28,20 +28,12 @@ public class FishManeger : MonoBehaviour
 
     public void Update()
     {
-        StartCoroutine(SpawnDelay());
-    }
-
-    IEnumerator SpawnDelay()
-    {
-        float randomTimeValue = Random.Range(1, 3.5f);
-        yield return new WaitForSeconds(randomTimeValue);
-
         FishSpawner();
     }
 
     public void FishSpawner()
     {
-        if(fishOnScene.Count != fishMaxAmount)
+        if(fishOnScene.Count != fishMaxAmount + 1)
         {
             spawnFish();
         }
