@@ -27,7 +27,7 @@ public class Fish : MonoBehaviour
     }
 
     
-    void Update()
+    void FixedUpdate()
     {
         rb.AddForce(transform.right * fishData.fishSpeed);
     }
@@ -41,6 +41,7 @@ public class Fish : MonoBehaviour
     {
         GameObject currentFish = fishManger.fishOnScene[fishManger.FishToSpawn];
         fishManger.fishOnScene.Remove(currentFish);
+        fishManger.FishSpawner();
         Destroy(gameObject);
     }
 }
