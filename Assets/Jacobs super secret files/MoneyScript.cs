@@ -7,11 +7,11 @@ public class MoneyScript : MonoBehaviour
     float fishvalue = 2f;
     float fishamount = 2f;
     public float Money = 0f;
-    string scoretext = "0 $";
+    string scoreValue = "0 $";
 
     private void FixedUpdate()
     {
-        scoretext = $"{Money} $";
+        scoreValue = $"{Money} $";
     }
 
     public void GiveMoney()
@@ -22,6 +22,6 @@ public class MoneyScript : MonoBehaviour
 
     public void UpdateScore()
     {
-        ScoreText.text = scoretext;
+        ScoreText.text = scoreValue;
     }
 }
