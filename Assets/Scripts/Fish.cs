@@ -37,7 +37,7 @@ public class Fish : MonoBehaviour
         FishDie();
     }
 
-    public void FishDie()
+    void FishDie()
     {
         GameObject currentFish = fishManger.fishOnScene[fishManger.FishToSpawn];
         fishManger.fishOnScene.Remove(currentFish);
