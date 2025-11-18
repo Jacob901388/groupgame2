@@ -34,13 +34,13 @@ public class Fish : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        FishDie();
+        int currentFish = fishManger.FishToSpawn;
+        FishDie(currentFish);
     }
 
-    public void FishDie()
+    public void FishDie(int FishToKill)
     {
-        GameObject currentFish = fishManger.fishOnScene[fishManger.FishToSpawn];
-        fishManger.fishOnScene.Remove(currentFish);
+        fishManger.fishOnScene.RemoveAt(FishToKill);
         fishManger.FishSpawner();
         Destroy(gameObject);
     }

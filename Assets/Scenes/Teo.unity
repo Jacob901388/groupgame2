@@ -272,8 +272,7 @@ MonoBehaviour:
   fishTypes:
   - {fileID: 8007066503086079451, guid: efa866626c0a2154892f1613d72d839b, type: 3}
   - {fileID: 8007066503086079451, guid: 9b595868714679f4186ec5ee4c629523, type: 3}
-  fishOnScene:
-  - {fileID: 0}
+  fishOnScene: []
   fishSpawn: {fileID: 1596063548}
   leftFishSpawn: {fileID: 434575669}
   rightFishSpawn: {fileID: 2101502622}

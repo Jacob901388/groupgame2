@@ -24,6 +24,7 @@ public class FishManeger : MonoBehaviour
     private void Start()
     {
         fishMaxAmount = 4;
+
         FishSpawner();
         FishSpawner();
         FishSpawner();
