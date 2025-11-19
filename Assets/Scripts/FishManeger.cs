@@ -23,6 +23,8 @@ public class FishManeger : MonoBehaviour
 
     private void Start()
     {
+        fishOnScene = new List<GameObject>();
+
         fishMaxAmount = 4;
 
         FishSpawner();
