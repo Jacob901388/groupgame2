@@ -63,7 +63,6 @@ public class FishManeger : MonoBehaviour
             GameObject fishToSpawn = Instantiate(fishTypes[FishToSpawn], new Vector3(rightFishSpawn.transform.position.x, rightFishSpawn.transform.position.y + FishSpawnHight, 0), Quaternion.Euler(0,0,0));
             fishOnScene.Add(fishToSpawn);
             fishToSpawn.transform.SetParent(ParentToFish.transform);
-            Debug.Log(fishToSpawn);
         }
     }
 
