@@ -48,8 +48,8 @@ public class FishingRodManager : MonoBehaviour
 
             CaughtFishData.GetComponent<Fish>().FishDie(CaughtFish);
 
-            fishManeger.fishOnScene.RemoveAt(CaughtFish);
-            Destroy(CaughtFishData);
+            //fishManeger.fishOnScene.RemoveAt(CaughtFish);
+            //Destroy(CaughtFishData);
 
         } else
         {
@@ -60,8 +60,9 @@ public class FishingRodManager : MonoBehaviour
 
             CaughtFishData.GetComponent<Fish>().FishDie(CaughtFish);
 
-            fishManeger.fishOnScene.RemoveAt(CaughtFish);
-            Destroy(CaughtFishData);
+            
+            //fishManeger.fishOnScene.RemoveAt(CaughtFish);
+            //Destroy(CaughtFishData);
         }
 
 
