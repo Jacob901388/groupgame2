@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,19 +10,24 @@ public class PopUpSpawner : MonoBehaviour
     string Popup = "";
     [SerializeField] string fishname;
     [SerializeField] int amountoffish;
-    [SerializeField] Transform Startpos;
-    [SerializeField] Transform Endpos;
-    [SerializeField] Transform popuptarget;
+    [SerializeField] RectTransform Startpos;
+    [SerializeField] RectTransform Endpos;
+    [SerializeField] RectTransform popuptarget;
+    [SerializeField] GameObject PrefabPopup;
+    [SerializeField] Transform PopupHolder;
 
-    bool canmove = false;
-    Vector3 velocity = Vector3.zero;
+    [SerializeField] bool canmove = false;
+
     private void FixedUpdate()
     {
+
         Popup = $"you have cought {amountoffish} amount of {fishname}";
 
         if(canmove == true)
         {
-        popuptarget.position = Vector3.SmoothDamp(Startpos.position, Endpos.position, ref velocity, 0.1f);
+            popuptarget.anchoredPosition = Vector3.Lerp(popuptarget.anchoredPosition, Endpos.anchoredPosition, 0.1f);
+            StartCoroutine(DestroyPopup());
+            canmove = false;
         }
     }
 
@@ -33,6 +39,12 @@ public class PopUpSpawner : MonoBehaviour
     public void MovePopup()
     {
         canmove = true;
+        Instantiate(PrefabPopup, PopupHolder);
+    }
+
+    IEnumerator DestroyPopup()
+    {
+        yield return new WaitForSeconds(2);
     }
 }
 
