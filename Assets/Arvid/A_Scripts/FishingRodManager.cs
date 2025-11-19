@@ -10,10 +10,16 @@ public class FishingRodManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI buttonText;
 
     [Header("Button")]
+    Button thisButton;
     [SerializeField] GameObject ReelImage;
-    [SerializeField] Image ReelColdown;
+    
 
     [Header("Coldown")]
+    [SerializeField] Image ReelColdown;
+    [SerializeField] GameObject onCoolDownText;
+
+    [SerializeField] float coolDownMultiplyer;
+
     [SerializeField] bool isOnColDown;
 
     FishManeger fishManeger;
@@ -24,12 +30,18 @@ public class FishingRodManager : MonoBehaviour
 
     private void Start()
     {
-        
-
+        thisButton = GetComponent<Button>();
 
         rodUpgradeButton = GetComponent<Button>();
         buttonPress();
         fishManeger = FindAnyObjectByType<FishManeger>();
+
+       
+    }
+
+    private void Update()
+    {
+        ButtonColdown();
     }
 
     void buttonPress()
@@ -42,7 +54,19 @@ public class FishingRodManager : MonoBehaviour
 
     void ButtonColdown()
     {
+        if (ReelColdown.fillAmount > 0 && isOnColDown)
+        {
+            ReelColdown.fillAmount -= coolDownMultiplyer * Time.deltaTime;
+        }
+        else
+        {
+            ReelColdown.fillAmount = 0;
+            ReelImage.SetActive(true);
+            onCoolDownText.SetActive(false);
+            thisButton.enabled = true;
 
+            isOnColDown = false;
+        }
     }
 
 
@@ -72,6 +96,14 @@ public class FishingRodManager : MonoBehaviour
 
             CaughtFishData.GetComponent<Fish>().FishDie(CaughtFish);
         }
+
+        //Cooldown
+        ReelColdown.fillAmount = 1;
+        ReelImage.SetActive(false);
+        onCoolDownText.SetActive(true);
+        thisButton.enabled = false;
+
+        isOnColDown = true;
     }
 
 

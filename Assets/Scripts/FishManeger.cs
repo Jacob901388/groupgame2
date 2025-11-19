@@ -58,7 +58,6 @@ public class FishManeger : MonoBehaviour
         {
             GameObject fishToSpawn = Instantiate(fishTypes[FishToSpawn], new Vector3(leftFishSpawn.transform.position.x, leftFishSpawn.transform.position.y + FishSpawnHight, 0), Quaternion.Euler(0,180,0));
             fishOnScene.Add(fishToSpawn);
-            Debug.Log("Adding_" + fishToSpawn);
             fishToSpawn.transform.SetParent(ParentToFish.transform);
         }
         else if (FishLeftOrRight == 1)
