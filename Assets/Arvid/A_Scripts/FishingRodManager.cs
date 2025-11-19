@@ -24,15 +24,39 @@ public class FishingRodManager : MonoBehaviour
     void OnClickButton()
     {
         int CaughtFish = Random.Range(0, FindFirstObjectByType<FishManeger>().fishOnScene.Count);
+        
+
 
         GameObject CaughtFishData = FindFirstObjectByType<FishManeger>().fishOnScene[CaughtFish];
+        if (CaughtFishData == null)
+        {
+            CaughtFishData = FindFirstObjectByType<FishManeger>().fishOnScene[CaughtFish + 1];
+            
 
-        int fishValue = CaughtFishData.GetComponent<Fish>().fishData.value;
-        Debug.Log(fishValue);
+            int fishValue = CaughtFishData.GetComponent<Fish>().fishData.value;
 
-        FindAnyObjectByType<MoneyCounter>().AddScore(fishValue);
 
-        CaughtFishData.GetComponent<Fish>().FishDie(CaughtFish);
+            FindAnyObjectByType<MoneyCounter>().AddScore(fishValue);
+
+            CaughtFishData.GetComponent<Fish>().FishDie(CaughtFish);
+
+            fishManeger.fishOnScene.RemoveAt(CaughtFish);
+            Destroy(CaughtFishData);
+
+        } else
+        {
+            int fishValue = CaughtFishData.GetComponent<Fish>().fishData.value;
+            
+
+            FindAnyObjectByType<MoneyCounter>().AddScore(fishValue);
+
+            CaughtFishData.GetComponent<Fish>().FishDie(CaughtFish);
+
+            fishManeger.fishOnScene.RemoveAt(CaughtFish);
+            Destroy(CaughtFishData);
+        }
+
+
     }
 
     
