@@ -17,15 +17,23 @@ public class FishingRodManager : MonoBehaviour
 
     private void Start()
     {   
+
+
+
         rodUpgradeButton = GetComponent<Button>();
         rodUpgradeButton.onClick.AddListener(OnClickButton);
         fishManeger = FindAnyObjectByType<FishManeger>();
     }
+
+    void ButtonColdown()
+    {
+
+    }
+
+
     void OnClickButton()
     {
         int CaughtFish = Random.Range(0, FindFirstObjectByType<FishManeger>().fishOnScene.Count);
-        
-
 
         GameObject CaughtFishData = FindFirstObjectByType<FishManeger>().fishOnScene[CaughtFish];
         if (CaughtFishData == null)
