@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class Fish : MonoBehaviour
 {
+    Animator animator;
     [Header("fishData")]
     [SerializeField] public FishData fishData;
 
@@ -19,6 +20,7 @@ public class Fish : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         fishManger = FindAnyObjectByType<FishManeger>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -50,8 +52,22 @@ public class Fish : MonoBehaviour
 
     public void FishDie(int FishToKill)
     {
-        fishManger.fishOnScene.RemoveAt(FishToKill);
-        fishManger.FishSpawner();
+        if (!isCaught)
+        {
+            animator.SetTrigger("FishDieAnimation");
+            fishManger.fishOnScene.RemoveAt(FishToKill);
+            fishManger.FishSpawner();
+            StartCoroutine(FishDieCooldown());
+        }
+    }
+
+    IEnumerator FishDieCooldown()
+    {
+
+
+        yield return new WaitForSeconds(1);
+
+
         Destroy(gameObject);
     }
 }

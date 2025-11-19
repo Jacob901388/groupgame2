@@ -86,6 +86,7 @@ public class FishingRodManager : MonoBehaviour
             FindAnyObjectByType<MoneyCounter>().AddScore(fishValue);
 
             CaughtFishData.GetComponent<Fish>().FishDie(CaughtFish);
+            CaughtFishData.GetComponent<Fish>().isCaught = true;
 
         } else
         {
@@ -95,6 +96,7 @@ public class FishingRodManager : MonoBehaviour
             FindAnyObjectByType<MoneyCounter>().AddScore(fishValue);
 
             CaughtFishData.GetComponent<Fish>().FishDie(CaughtFish);
+            CaughtFishData.GetComponent<Fish>().isCaught = true;
         }
 
         //Cooldown
