@@ -9,6 +9,13 @@ public class FishingRodManager : MonoBehaviour
     [SerializeField] Image buttonImage;
     [SerializeField] TextMeshProUGUI buttonText;
 
+    [Header("Button")]
+    [SerializeField] GameObject ReelImage;
+    [SerializeField] Image ReelColdown;
+
+    [Header("Coldown")]
+    [SerializeField] bool isOnColDown;
+
     FishManeger fishManeger;
 
     
@@ -16,13 +23,21 @@ public class FishingRodManager : MonoBehaviour
 
 
     private void Start()
-    {   
-
+    {
+        
 
 
         rodUpgradeButton = GetComponent<Button>();
-        rodUpgradeButton.onClick.AddListener(OnClickButton);
+        buttonPress();
         fishManeger = FindAnyObjectByType<FishManeger>();
+    }
+
+    void buttonPress()
+    {
+        if (!isOnColDown)
+        {
+            rodUpgradeButton.onClick.AddListener(OnClickButton);
+        }
     }
 
     void ButtonColdown()
@@ -48,9 +63,6 @@ public class FishingRodManager : MonoBehaviour
 
             CaughtFishData.GetComponent<Fish>().FishDie(CaughtFish);
 
-            //fishManeger.fishOnScene.RemoveAt(CaughtFish);
-            //Destroy(CaughtFishData);
-
         } else
         {
             int fishValue = CaughtFishData.GetComponent<Fish>().fishData.value;
@@ -59,14 +71,10 @@ public class FishingRodManager : MonoBehaviour
             FindAnyObjectByType<MoneyCounter>().AddScore(fishValue);
 
             CaughtFishData.GetComponent<Fish>().FishDie(CaughtFish);
-
-            
-            //fishManeger.fishOnScene.RemoveAt(CaughtFish);
-            //Destroy(CaughtFishData);
         }
-
-
     }
+
+
 
     
 }
