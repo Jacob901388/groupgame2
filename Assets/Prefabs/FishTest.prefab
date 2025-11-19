@@ -288,7 +288,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fish
   fishData: {fileID: 11400000, guid: 18269e80bd770b8488543ee429f9aed6, type: 2}
-  fishLifeDuration: 3
+  fishLifeDuration: 0
+  isCaught: 0
 --- !u!212 &-2851783378087195374
 SpriteRenderer:
   m_ObjectHideFlags: 0
