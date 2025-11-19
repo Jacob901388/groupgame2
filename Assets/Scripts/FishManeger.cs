@@ -23,25 +23,22 @@ public class FishManeger : MonoBehaviour
 
     private void Start()
     {
-        fishMaxAmount = 4; 
+        fishMaxAmount = 4;
+
+        FishSpawner();
+        FishSpawner();
+        FishSpawner();
+        FishSpawner();
     }
 
     public void Update()
     {
-        StartCoroutine(SpawnDelay());
-    }
-
-    IEnumerator SpawnDelay()
-    {
-        float randomTimeValue = Random.Range(1, 3.5f);
-        yield return new WaitForSeconds(randomTimeValue);
-
-        FishSpawner();
+        
     }
 
     public void FishSpawner()
     {
-        if(fishOnScene.Count != fishMaxAmount)
+        if(fishOnScene.Count != fishMaxAmount + 1)
         {
             spawnFish();
         }
@@ -66,9 +63,8 @@ public class FishManeger : MonoBehaviour
             GameObject fishToSpawn = Instantiate(fishTypes[FishToSpawn], new Vector3(rightFishSpawn.transform.position.x, rightFishSpawn.transform.position.y + FishSpawnHight, 0), Quaternion.Euler(0,0,0));
             fishOnScene.Add(fishToSpawn);
             fishToSpawn.transform.SetParent(ParentToFish.transform);
+            Debug.Log(fishToSpawn);
         }
-
-        //fishOnScene.Add(fishTypes[FishToSpawn]);
     }
 
 

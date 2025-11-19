@@ -12,6 +12,8 @@ public class Fish : MonoBehaviour
     [SerializeField] float fishLifeDuration;
 
     [Header("Other Info")]
+    public bool isCaught;
+
     FishManeger fishManger;
     Rigidbody2D rb;
 
@@ -20,22 +22,36 @@ public class Fish : MonoBehaviour
         fishManger = FindAnyObjectByType<FishManeger>();
         rb = GetComponent<Rigidbody2D>();
 
-        fishLifeDuration = 3 * (fishData.fishSpeed + 2);
+        fishLifeDuration = 3 * ((fishData.fishSpeed + 1) * 2);
 
 
         gameObject.transform.localScale = new Vector3(fishData.fishSize, fishData.fishSize, fishData.fishSize);
+
+        StartCoroutine(FishLifeTime());
     }
 
     
-    void Update()
+    void FixedUpdate()
     {
         rb.AddForce(transform.right * fishData.fishSpeed);
     }
 
-    private void OnBecameInvisible()
+    IEnumerator FishLifeTime()
     {
-        GameObject currentFish = fishManger.fishOnScene[fishManger.FishToSpawn];
-        fishManger.fishOnScene.Remove(currentFish);
+
+        yield return new WaitForSeconds(fishLifeDuration);
+        if (!isCaught)
+        {
+            int currentFish = fishManger.FishToSpawn;
+            FishDie(currentFish);
+        }
+
+    }
+
+    public void FishDie(int FishToKill)
+    {
+        fishManger.fishOnScene.RemoveAt(FishToKill);
+        fishManger.FishSpawner();
         Destroy(gameObject);
     }
 }
