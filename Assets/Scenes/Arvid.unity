@@ -272,6 +272,8 @@ MonoBehaviour:
   fishTypes:
   - {fileID: 8007066503086079451, guid: efa866626c0a2154892f1613d72d839b, type: 3}
   - {fileID: 8007066503086079451, guid: 9b595868714679f4186ec5ee4c629523, type: 3}
+  - {fileID: 8007066503086079451, guid: 375cbb3a0889ed44bbac88a89918b7b5, type: 3}
+  - {fileID: 8007066503086079451, guid: a7758660a326ed54ea4cb9294d22a076, type: 3}
   fishOnScene:
   - {fileID: 0}
   fishSpawn: {fileID: 1596063548}
@@ -550,7 +552,7 @@ Transform:
   m_GameObject: {fileID: 434575669}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 0, z: 0}
+  m_LocalPosition: {x: 8.66, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2125,7 +2127,7 @@ Transform:
   m_GameObject: {fileID: 2101502622}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.5, y: 0, z: 0}
+  m_LocalPosition: {x: -9.99, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

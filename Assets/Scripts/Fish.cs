@@ -22,7 +22,7 @@ public class Fish : MonoBehaviour
         fishManger = FindAnyObjectByType<FishManeger>();
         rb = GetComponent<Rigidbody2D>();
 
-        fishLifeDuration = 3 * ((fishData.fishSpeed + 1) * 2);
+        fishLifeDuration = 3 * ((fishData.fishSpeed + 1.5f) * 2);
 
 
         gameObject.transform.localScale = new Vector3(fishData.fishSize, fishData.fishSize, fishData.fishSize);
