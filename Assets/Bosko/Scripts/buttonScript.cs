@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class buttonScript : MonoBehaviour
 {
+    MoneyCounter moneyCounter;
 
     [Header("Shop")]
     public int shop1prize;
@@ -32,6 +33,8 @@ public class buttonScript : MonoBehaviour
 
     void Start ()
     {
+        moneyCounter = FindAnyObjectByType<MoneyCounter>();
+
         //Clicker
         currentScore = 0;
         hitPower--;
@@ -99,7 +102,7 @@ public class buttonScript : MonoBehaviour
 
     public void Shop1()
     {
-        if (currentScore >= shop1prize)
+        if (moneyCounter.currentMoney >= shop1prize)
         {
             currentScore = currentScore - shop1prize;
             amount1++;
@@ -111,7 +114,7 @@ public class buttonScript : MonoBehaviour
 
     public void Shop2()
     {
-        if (currentScore >= shop2prize)
+        if (moneyCounter.currentMoney >= shop2prize)
         {
             currentScore = currentScore - shop2prize;
             amount2++;
@@ -119,11 +122,6 @@ public class buttonScript : MonoBehaviour
             x += 5;
             shop2prize += 125;
         }
-    }
-
-    public void addScore(int scoreToAdd)
-    {
-
     }
 
 }
