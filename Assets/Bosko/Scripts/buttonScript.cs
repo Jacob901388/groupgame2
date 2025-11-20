@@ -44,6 +44,8 @@ public class buttonScript : MonoBehaviour
         fishingRodManagerScript = FindAnyObjectByType<FishingRodManager>();
 
         shop1text.text = "Reduce click cooldown Price: " + shop1prize;
+        shop2text.text = "Increase The Value of Fish Value: " + shop2prize;
+        shop3text.text = "Increase The Amount of Fish: " + shop3prize;
 
         //Clicker
         currentScore = 0;
@@ -128,6 +130,7 @@ public class buttonScript : MonoBehaviour
             moneyCounter.DeductScore(shop2prize);
             fishingRodManagerScript.fishValueMultiplier += 2;
             shop2prize *= 2;
+            shop2text.text = "Increase The Value of Fish Value: " + shop2prize;
         }
     }
 
@@ -139,6 +142,7 @@ public class buttonScript : MonoBehaviour
             fishManeger.fishMaxAmount += 1;
             fishManeger.FishSpawner();
             shop3prize *= 2;
+            shop3text.text = "Increase The Amount of Fish: " + shop3prize;
         }
     }
 

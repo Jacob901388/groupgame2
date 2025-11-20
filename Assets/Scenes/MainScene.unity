@@ -2310,9 +2310,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::buttonScript
   shop1prize: 25
   shop1text: {fileID: 794491449}
-  shop2prize: 0
-  shop2text: {fileID: 0}
-  shop3prize: 0
+  shop2prize: 35
+  shop2text: {fileID: 628177035}
+  shop3prize: 100
+  shop3text: {fileID: 516238458}
   scoreText: {fileID: 0}
   currentScore: 0
   hitPower: 0
