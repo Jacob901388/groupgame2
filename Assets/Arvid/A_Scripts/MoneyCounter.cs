@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MoneyCounter : MonoBehaviour
 {
-    [SerializeField] int currentMoney;
+    [SerializeField] public int currentMoney;
 
     buttonScript buttonScript;
 
