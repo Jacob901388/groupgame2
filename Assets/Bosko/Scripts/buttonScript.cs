@@ -1,15 +1,21 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class buttonScript : MonoBehaviour
 {
+    FishingRodManager fishingRodManagerScript;
     MoneyCounter moneyCounter;
+    FishManeger fishManeger;
 
     [Header("Shop")]
     public int shop1prize;
-    public Text shop1text;
+    public TextMeshProUGUI shop1text;
 
     public int shop2prize;
-    public Text shop2text;
+    public TextMeshProUGUI shop2text;
+
+    public int shop3prize;
+    public TextMeshProUGUI shop3text;
 
     [Header("Click")]
     public Text scoreText;
@@ -33,7 +39,11 @@ public class buttonScript : MonoBehaviour
 
     void Start ()
     {
+        fishManeger = FindAnyObjectByType<FishManeger>();
         moneyCounter = FindAnyObjectByType<MoneyCounter>();
+        fishingRodManagerScript = FindAnyObjectByType<FishingRodManager>();
+
+        shop1text.text = "Reduce click cooldown Price: " + shop1prize;
 
         //Clicker
         currentScore = 0;
@@ -46,7 +56,8 @@ public class buttonScript : MonoBehaviour
 
         //Set all varibals to default before loading
         shop1prize = 25;
-        shop2prize = 125;
+        shop2prize = 35;
+        shop3prize = 100;
         amount1 = 0;
         amount1Profit = 1;
         amount2 = 0;
@@ -63,29 +74,28 @@ public class buttonScript : MonoBehaviour
 
 
     void Update()
-
     {
         //Clicker
-        currentScore = 0;
-        hitPower--;
-        scoreIncreasedPerSecond = 1;
-        x = 0f;
+        //currentScore = 0;
+        //hitPower--;
+        //scoreIncreasedPerSecond = 1;
+        //x = 0f;
 
 
 
         //Upgrade
-        upgradeText.text = "cost" + upgradePrize + " $";
+        //upgradeText.text = "cost" + upgradePrize + " $";
 
         //shop
-        shop1text.text = "Tier 1: " + shop1prize + " $: ";
-        shop2text.text = "Tier 2: " + shop1prize + " $: ";
+        //shop1text.text = "Tier 1: " + shop1prize + " $: ";
+        //shop2text.text = "Tier 2: " + shop1prize + " $: ";
 
         //amounts
-        amount1Text.text = "Tier 1: " + amount1 + " arts $: " + amount1Profit + "/s";
-        amount2Text.text = "Tier 2: " + amount1 + " arts $: " + amount2Profit + "/s";
+        //amount1Text.text = "Tier 1: " + amount1 + " arts $: " + amount1Profit + "/s";
+        //amount2Text.text = "Tier 2: " + amount1 + " arts $: " + amount2Profit + "/s";
 
         //Reload
-        PlayerPrefs.SetInt("currentScore", 0);
+        //PlayerPrefs.SetInt("currentScore", 0);
     }
 
     public void Upgrade()
@@ -104,11 +114,10 @@ public class buttonScript : MonoBehaviour
     {
         if (moneyCounter.currentMoney >= shop1prize)
         {
-            currentScore = currentScore - shop1prize;
-            amount1++;
-            amount1Profit++;
-            x++;
-            shop1prize += 25;
+            moneyCounter.DeductScore(shop1prize);
+            fishingRodManagerScript.coolDownMultiplyer += 0.15f;
+            shop1prize *= 2;
+            shop1text.text = "Reduce click cooldown Price: " + shop1prize;
         }
     }
 
@@ -116,11 +125,20 @@ public class buttonScript : MonoBehaviour
     {
         if (moneyCounter.currentMoney >= shop2prize)
         {
-            currentScore = currentScore - shop2prize;
-            amount2++;
-            amount2Profit += 5;
-            x += 5;
-            shop2prize += 125;
+            moneyCounter.DeductScore(shop2prize);
+            fishingRodManagerScript.fishValueMultiplier += 2;
+            shop2prize *= 2;
+        }
+    }
+
+    public void Shop3()
+    {
+        if (moneyCounter.currentMoney >= shop3prize)
+        {
+            moneyCounter.DeductScore(shop3prize);
+            fishManeger.fishMaxAmount += 1;
+            fishManeger.FishSpawner();
+            shop3prize *= 2;
         }
     }
 

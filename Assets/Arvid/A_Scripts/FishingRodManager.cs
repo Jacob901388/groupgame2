@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class FishingRodManager : MonoBehaviour
 {
+    FishManeger fishManeger;
+    PopupUpdater popupUpdater;
+
     [Header("Button Art")]
 
     [SerializeField] Image buttonImage;
@@ -18,11 +21,13 @@ public class FishingRodManager : MonoBehaviour
     [SerializeField] Image ReelColdown;
     [SerializeField] GameObject onCoolDownText;
 
-    [SerializeField] float coolDownMultiplyer;
+    [SerializeField] public float coolDownMultiplyer;
 
     [SerializeField] bool isOnColDown;
 
-    FishManeger fishManeger;
+    [Header("FishValueMultiplyier")]
+    [SerializeField] public int fishValueMultiplier;
+   
 
     
     Button rodUpgradeButton;
@@ -31,6 +36,7 @@ public class FishingRodManager : MonoBehaviour
     private void Start()
     {
         thisButton = GetComponent<Button>();
+        popupUpdater = FindAnyObjectByType<PopupUpdater>();
 
         rodUpgradeButton = GetComponent<Button>();
         buttonPress();
@@ -82,8 +88,14 @@ public class FishingRodManager : MonoBehaviour
 
             int fishValue = CaughtFishData.GetComponent<Fish>().fishData.value;
 
+            //string fishname = CaughtFishData.GetComponent<Fish>().fishData.fishName;
+            //int fishvalue = fishValue + fishValueMultiplier;
 
-            FindAnyObjectByType<MoneyCounter>().AddScore(fishValue);
+            //popupUpdater.fishname = fishname;
+            //popupUpdater.moneyamount = fishvalue;
+
+
+            FindAnyObjectByType<MoneyCounter>().AddScore(fishValue + fishValueMultiplier);
 
             CaughtFishData.GetComponent<Fish>().FishDie(CaughtFish);
             CaughtFishData.GetComponent<Fish>().isCaught = true;
@@ -91,9 +103,15 @@ public class FishingRodManager : MonoBehaviour
         } else
         {
             int fishValue = CaughtFishData.GetComponent<Fish>().fishData.value;
-            
 
-            FindAnyObjectByType<MoneyCounter>().AddScore(fishValue);
+
+            //string fishname = CaughtFishData.GetComponent<Fish>().fishData.fishName;
+            //int fishvalue = fishValue + fishValueMultiplier;
+
+            //popupUpdater.fishname = fishname;
+            //popupUpdater.moneyamount = fishvalue;
+
+            FindAnyObjectByType<MoneyCounter>().AddScore(fishValue + fishValueMultiplier);
 
             CaughtFishData.GetComponent<Fish>().FishDie(CaughtFish);
             CaughtFishData.GetComponent<Fish>().isCaught = true;
